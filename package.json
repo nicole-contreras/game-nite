@@ -1,0 +1,25 @@
+{
+  "name": "gamenite",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "check": "npm run check --workspaces",
+    "lint": "eslint .",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "test": "npm run test --workspaces",
+    "dev": "echo \"Run \\`npm run dev -w=server\\` and \\`npm run dev -w=client\\` separately\\n\"",
+    "build": "npm run build -w=client",
+    "start": "npm start -w=server",
+    "playwright": "npm run playwright -w=client"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
