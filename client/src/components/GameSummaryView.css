@@ -1,0 +1,32 @@
+.gameSummary {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px dashed black;
+  color: var(--gray-foreground);
+}
+
+.gameSummary div {
+  white-space: nowrap;
+}
+
+.gameSummary .mid {
+  flex-grow: 1;
+  color: cornflowerblue;
+}
+
+.gameSummary .stats {
+  text-align: center;
+  width: 10rem;
+  flex-shrink: 0;
+}
+
+.gameSummary .newBadge {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-left: 8px;
+  flex-shrink: 0;
+}

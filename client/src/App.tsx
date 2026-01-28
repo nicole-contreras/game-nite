@@ -6,6 +6,9 @@ import Login from "./pages/Login.tsx";
 import type { AuthContext } from "./contexts/LoginContext.ts";
 import Layout from "./components/Layout.tsx";
 import Home from "./pages/Home.tsx";
+import GameList from "./pages/GameList.tsx";
+import NewGame from "./pages/NewGame.tsx";
+import Game from "./pages/Game.tsx";
 import { io } from "socket.io-client";
 import type { GameSocket } from "./util/types.ts";
 import LoggedInRoute from "./components/LoggedInRoute.tsx";
@@ -54,6 +57,9 @@ export default function App() {
           }
         >
           <Route path="/" element={<Home />} />
+          <Route path="/games" element={<GameList />} />
+          <Route path="/game/new" element={<NewGame />} />
+          <Route path="/game/:gameId" element={<Game />} />
           <Route path="/*" element={<NoSuchRoute />} />
         </Route>
       </Routes>
