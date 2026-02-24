@@ -1,6 +1,4 @@
 /* eslint no-console: "off" */
-
-
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
 import Login from "./pages/Login.tsx";
@@ -39,7 +37,6 @@ function NoSuchRoute() {
   const { pathname } = useLocation();
   return `No page found for route '${pathname}'`;
 }
-
 
 export default function App() {
   const [auth, setAuth] = useState<AuthContext | null>(null);
