@@ -3,6 +3,7 @@ import { populateSafeUserInfo } from "./user.service.ts";
 import { createComment, populateCommentInfo } from "./comment.service.ts";
 import { type UserWithId } from "../types.ts";
 import { ThreadRepo } from "../repository.ts";
+import { sanitizeInput } from "../util/sanitize.ts";
 
 /**
  * Expand a stored thread
@@ -53,8 +54,8 @@ export async function createThread(
   createdAt: Date,
 ): Promise<ThreadInfo> {
   const id = await ThreadRepo.add({
-    title,
-    text,
+    title: sanitizeInput(title),
+    text: sanitizeInput(text),
     createdAt: createdAt.toISOString(),
     createdBy: user.userId,
     comments: [],

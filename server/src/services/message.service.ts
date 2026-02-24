@@ -3,6 +3,7 @@ import type { MessageType } from "../models.ts";
 import { populateSafeUserInfo } from "./user.service.ts";
 import { type UserWithId } from "../types.ts";
 import { MessageRepo } from "../repository.ts";
+import { sanitizeInput } from "../util/sanitize.ts";
 
 /**
  * Expand a stored message
@@ -38,7 +39,7 @@ export async function createMessage(
   moveInfo?: { gameId: string; move: unknown; action: string },
 ): Promise<MessageInfo> {
   const messageId = await MessageRepo.add({
-    text,
+    text: sanitizeInput(text),
     createdAt: createdAt.toISOString(),
     createdBy: user.userId,
     type,

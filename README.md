@@ -73,6 +73,12 @@ When you're building a project like this, you make choices that shape everything
 - No more "did I emit 'game:move' or 'move'?" bugs
 - IDE autocomplete actually works
 
+**Input Sanitization for Security**
+- All user-generated content (threads, comments, messages, profiles) is sanitized
+- Uses `sanitize-html` to prevent XSS attacks
+- Malicious scripts and HTML are stripped before storage
+- Protects against cross-site scripting vulnerabilities
+
 ## Getting Started
 
 ### What You Need

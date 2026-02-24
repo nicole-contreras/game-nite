@@ -2,6 +2,7 @@ import { type CommentInfo } from "@gamenite/shared";
 import { populateSafeUserInfo } from "./user.service.ts";
 import { type UserWithId } from "../types.ts";
 import { CommentRepo } from "../repository.ts";
+import { sanitizeInput } from "../util/sanitize.ts";
 
 /**
  * Expand a stored comment
@@ -34,7 +35,7 @@ export async function createComment(
   createdAt: Date,
 ): Promise<CommentInfo> {
   const id = await CommentRepo.add({
-    text,
+    text: sanitizeInput(text),
     createdAt: createdAt.toISOString(),
     createdBy: user.userId,
   });

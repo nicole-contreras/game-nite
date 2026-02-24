@@ -20,6 +20,18 @@ export const createGame = async (auth: UserAuth, gameKey: GameKey): APIResponse<
 };
 
 /**
+ * Sends a GET request to get a game
+ */
+export const getGameById = async (gameId: string): APIResponse<GameInfo> => {
+  try {
+    const res = await api.get<GameInfo | ErrorMsg>(`${GAME_API_URL}/${gameId}`);
+    return res.data;
+  } catch (error) {
+    return exceptionToErrorMsg(error);
+  }
+};
+
+/**
  * Sends a GET request for all games
  */
 export const gameList = async (): APIResponse<GameInfo[]> => {

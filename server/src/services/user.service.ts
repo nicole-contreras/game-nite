@@ -1,6 +1,7 @@
 import { type SafeUserInfo, type UserUpdateRequest } from "@gamenite/shared";
 import { getUserByUsername, updateAuth } from "./auth.service.ts";
 import { UserRepo } from "../repository.ts";
+import { sanitizeInput } from "../util/sanitize.ts";
 
 const disallowedUsernames = new Set(["login", "signup", "list"]);
 
@@ -84,7 +85,7 @@ export async function updateUser(
   if (!user) throw new Error(`No user ${username}`);
   if (password !== undefined) await updateAuth(username, password, user.userId);
   const newUser = await UserRepo.get(user.userId);
-  if (display !== undefined) newUser.display = display;
+  if (display !== undefined) newUser.display = sanitizeInput(display);
   await UserRepo.set(user.userId, newUser);
   return populateSafeUserInfo(user.userId);
 }
