@@ -39,7 +39,9 @@ export default function MessageList({ messages }: MessageListProps) {
             const actionText = typeof action === "string" ? action.replace(/^\w+ /, "") : "";
             return (
               <div key={message.messageId} className="chatMove">
-                <div className="chatMoveContent">{`${sender} ${actionText}`}</div>
+                <div className="chatMoveContent">
+                  {isMe ? actionText : `${sender} ${actionText}`}
+                </div>
                 <div className="chatMoveSender">
                   {sender} {timeSince(message.createdAt)}
                 </div>
