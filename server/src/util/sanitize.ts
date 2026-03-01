@@ -2,11 +2,11 @@ import sanitizeHtml from "sanitize-html";
 
 /**
  * Input Sanitization Utility
- * 
+ *
  * Protects against XSS (Cross-Site Scripting) attacks by sanitizing user-generated content.
  * All user input from forums, chat messages, and profiles is processed through these functions
  * before being stored in the database.
- * 
+ *
  * Example attack prevented:
  * Input:  '<script>alert("stolen cookies: " + document.cookie)</script>Hello'
  * Output: 'Hello'
