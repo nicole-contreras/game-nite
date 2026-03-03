@@ -6,7 +6,7 @@ test.describe("Game Nite Real-Time Features", () => {
     // Create a Number Guesser game and join as two users
     const user1 = await browser.newPage();
     const user2 = await browser.newPage();
-    const username1 = await createAndLoadGame(user1, user2, "guess", false, true);
+    await createAndLoadGame(user1, user2, "guess", false, true);
 
     // Set the slider to 50 and submit the guess
     const slider = user1.getByRole("slider");
@@ -28,7 +28,7 @@ test.describe("Game Nite Real-Time Features", () => {
     // Create a Nim game and join as two users
     const user1 = await browser.newPage();
     const user2 = await browser.newPage();
-    const username1 = await createAndLoadGame(user1, user2, "nim", true, true);
+    await createAndLoadGame(user1, user2, "nim", true, true);
 
     // Wait for the move button to be visible for user1
     const moveButton = user1.locator("text=Take two");
