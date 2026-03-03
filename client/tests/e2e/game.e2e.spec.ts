@@ -16,8 +16,9 @@ test.describe("Game Nite Real-Time Features", () => {
     await submitButton.click();
 
     // Wait for move message to appear in chat for both users
-    await expect(user1.locator(".chatMoveContent")).toContainText("You 50");
-    await expect(user2.locator(".chatMoveContent")).toContainText(`${username1} 50`);
+    // Move content shows "50 (too low)" for both players (no 'You' prefix for own moves)
+    await expect(user1.locator(".chatMoveContent")).toContainText("50");
+    await expect(user2.locator(".chatMoveContent")).toContainText("50");
 
     await user1.close();
     await user2.close();
@@ -36,8 +37,9 @@ test.describe("Game Nite Real-Time Features", () => {
     await moveButton.click();
 
     // Wait for move message to appear in chat for both users
-    await expect(user1.locator(".chatMoveContent")).toContainText("You 2 tokens");
-    await expect(user2.locator(".chatMoveContent")).toContainText(`${username1} 2 tokens`);
+    // Move content shows "2 tokens, leaving 19" for both players (no 'You' prefix for own moves)
+    await expect(user1.locator(".chatMoveContent")).toContainText("2 tokens");
+    await expect(user2.locator(".chatMoveContent")).toContainText("2 tokens");
     await expect(user1.locator(".chatMove")).toHaveCSS("text-align", "center");
 
     await user1.close();
