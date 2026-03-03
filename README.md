@@ -364,5 +364,4 @@ database design to the UI components to the game logic.
 
 ## License
 
-MIT License - use it however you want. Check the [LICENSE](LICENSE) file if
-you care about the legal stuff.
+MIT License - use it however you want. Check the [LICENSE](LICENSE) file.
